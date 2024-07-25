@@ -43,18 +43,67 @@ if (isset($_GET['kat'])) {
   <!-- Bootstrap 4.1.3 CSS -->
   <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"> -->
 
+  
 
   <!-- Feather Icons -->
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- My CSS Style -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .footer {
+      background-color: #222;
+      color: #ddd;
+      padding-top: 40px;
+      padding-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer h5 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer p,
+    .footer a {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer a:hover {
+      color: #bb6a00;
+      text-decoration: none;
+    }
+
+    .footer .social-icons a {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .footer .social-icons a:hover {
+      color: #bb6a00;
+    }
+
+    .footer .list-unstyled {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .footer .text-warning {
+      color: #bb6a00 !important;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navbar Start-->
   <nav class="navbar">
-    <a href="index.html" class="navbar-logo">Catering<span>ku.</span>.</a>
+    <a href="index.html" class="navbar-logo">Catering<span>ku</span>.</a>
     <div class="navbar-nav">
       <a href="#home">Home</a>
       <a href="#about">Tentang Kami</a>
@@ -94,7 +143,7 @@ if (isset($_GET['kat'])) {
 
       <h1>Pesan <span>Makanan Favorit Anda</span> dengan Mudah</h1>
       <p>Cateringku menyediakan layanan pesan antar makanan yang cepat dan lezat. Nikmati berbagai pilihan menu sehat dan lezat kami!</p>
-       <a class="btn-beli" href="#menu">Lihat Menu</a>
+      <a href="#menu" class="btn-beli">Lihat Menu</a>
 
 
     </main>
@@ -127,11 +176,35 @@ if (isset($_GET['kat'])) {
     <h2><span>Pilihan</span> Menu</h2>
     <p>Makanan cepat dan enak di cateringku solusinya!</p>
 
+    <!-- Kategori -->
+    <div class="category">
+      <h3>Kategori</h3>
+      <div class="category-container">
+        <?php
+        $kategori = mysqli_query($conn, "SELECT * FROM tbl_category ORDER BY category_id ASC");
+        if (mysqli_num_rows($kategori) > 0) :
+          while ($k = mysqli_fetch_assoc($kategori)) :
+        ?>
+            <a href="user.php?kat=<?php echo $k['category_id']; ?>#menu" class="category-card">
+              <div class="category-icon">
+                <i data-feather="tag"></i>
+              </div>
+              <div class="category-name">
+                <?php echo $k['category_name']; ?>
+              </div>
+            </a>
+        <?php
+          endwhile;
+        endif;
+        ?>
+      </div>
+    </div>
+
     <div class="row">
 
       <?php while ($p = mysqli_fetch_object($produk)) : ?>
         <div class="menu-card">
-          <img class="menu-card-img" src="img/asset/menu/<?php echo $p->product_image ?>" alt="Menu"  />
+          <img class="menu-card-img" src="img/asset/menu/<?php echo $p->product_image ?>" alt="Menu" />
           <h3 class="menu-card-title">~ <?php echo $p->product_name ?> ~</h3>
           <p class="menu-card-price">Rp.<?php echo $p->product_price ?></p>
           <a class="beli-menu" href="qr.html">Beli Sekarang</a>
@@ -140,27 +213,7 @@ if (isset($_GET['kat'])) {
       <?php endwhile; ?>
     </div>
 
-    <div class="category">
-      <h3>Kategori</h3>
-      <div class="box">
-        <?php $kategori = mysqli_query($conn, "SELECT * FROM tbl_category ORDER BY category_id ASC");
-        // pengecekan jika datanya adalah
-        if (mysqli_num_rows($kategori) > 0) :
-          while ($k = mysqli_fetch_assoc($kategori)) :
-        ?>
-            <a href="index.php?kat=<?php echo $k["category_id"] ?>#menu" class="btn btn-success btn-outline m-auto text-center">
-           
-                <p class="m-auto"><?php echo $k["category_name"] ?></p>
-             
-            </a>
-        <?php
-          endwhile;
-        endif;
-
-        ?>
-
-      </div>
-    </div>
+   
   </section>
   <!-- Menu Section End -->
 
@@ -194,27 +247,50 @@ if (isset($_GET['kat'])) {
   </section>
   <!-- Contact Section End  -->
 
-  <!-- Fotter Start -->
-  <footer>
-    <div class="sosial">
-      <a target="_blank" href="https://twitter.com/MiftaAldi24?t=tGR24pLkyKmcJkHMb6NlwA&s=09"><i data-feather="twitter"></i></a>
-      <a target="_blank" href="https://instagram.com/mifta_xh_ui?igshid=ZDdkNTZiNTM="><i data-feather="instagram"></i></a>
-      <a target="_blank" href="https://github.com/Mifta24"><i data-feather="github"></i></a>
-    </div>
+ 
 
-    <div class="link">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <!-- Footer Start -->
+  <footer class="footer bg-dark text-light pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-md-4">
+          <h5>About Cateringku.</h5>
+          <p>Cateringku is committed to providing the best ordering food experience. We serve freshly food, drink, and delicious food.</p>
+        </div>
 
-    <div class="credit">
-    <p>&copy; 2024 Cateringku. All rights reserved.</p>
+        <!-- Quick Links Section -->
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a class="text-light" href="#">Home</a></li>
+            <li><a class="text-light" href="#">Products</a></li>
+            <li><a class="text-light" href="#">About Us</a></li>
+            <li><a class="text-light" href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a target="_blank" href="" class="text-light"><i data-feather="twitter"></i></a>
+            <a target="_blank" href="" class="text-light"><i data-feather="instagram"></i></a>
+            <a target="_blank" href="" class="text-light"><i data-feather="github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="mb-0">Created by <a class="text-warning" href="#">Cateringku</a> | &copy; 2024. All rights reserved.</p>
+        </div>
+      </div>
     </div>
   </footer>
-  <!-- Fotter End -->
+  <!-- Footer End -->
 
+  
   <!-- Feather Icons -->
   <script>
     feather.replace();

@@ -312,6 +312,54 @@ margin-bottom: 1rem;
     line-height: 1.6; /* Spasi antar baris */
 }
 
+/* Category Section Styles */
+.category {
+    padding: 40px 20px;
+    background-color: #000000;
+    text-align: center;
+  }
+  
+  .category h3 {
+    font-size: 2rem;
+    color: #ccd5da;
+    margin-bottom: 20px;
+  }
+  
+  .category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .category-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(41, 211, 84, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .category-icon {
+    font-size: 2rem;
+    color: #8aa011;
+    margin-bottom: 10px;
+  }
+  
+  .category-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
 
 /* Menu section */
 

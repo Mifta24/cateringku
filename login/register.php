@@ -34,7 +34,7 @@ if (isset($_GET['pesan'])) {
   <!-- login template -->
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-  <link rel="stylesheet" href="../login-template/dist/style.css">
+  <link rel="stylesheet" href="../login-template/src/style.css">
 
   <!-- My Css -->
   <!-- <link rel="stylesheet" href="css/register.css"> -->
@@ -45,7 +45,7 @@ if (isset($_GET['pesan'])) {
 
   <div class="welcome">
     <a href="login.php"><i data-feather="corner-up-left"></i></a>
-    <h1> Welcome To Catering<span>ku</span>.</h1>
+    <h1 class="text-center"> Welcome To Catering<span>ku</span>.</h1>
 
   </div>
 
@@ -67,12 +67,16 @@ if (isset($_GET['pesan'])) {
             <input name="password" id="password" type="password" class="login__input" placeholder="Password" required>
           </div>
           <div class="login__field">
-            <i class="login__icon fas fa-user"></i>
-            <input class="login__input" type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat" required>
+            <i class="login__icon fas fa-lock"></i>
+            <input name="password1" id="password1" type="password" class="login__input" placeholder="Password" required>
           </div>
           <div class="login__field">
-            <i class="login__icon fas fa-user"></i>
-            <input class="login__input" type="text" name="telp" id="telp" placeholder="Masukkan No Telp" required>
+            <i class="login__icon fas fa-map-pin"></i>
+            <input class="login__input text-light" type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat" required>
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-phone"></i>
+            <input class="login__input text-light" type="text" name="telp" id="telp" placeholder="Masukkan No Telp" required>
           </div>
           <button class="button login__submit" type="submit" name="buat" id="buat">
             <span class="button__text">Sign up</span>

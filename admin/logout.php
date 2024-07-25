@@ -6,8 +6,6 @@ session_start();
 session_destroy();
 session_unset();
 
-
- 
 // mengalihkan halaman sambil mengirim pesan logout
 header("location:../login/login.php");
 echo "<script> alert('Anda Telah Logout') </script>"
