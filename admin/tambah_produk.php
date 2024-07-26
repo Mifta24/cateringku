@@ -2,8 +2,6 @@
 // koneksi database
 include '../database/db.php';
 
-
-
 // Kondisi jika belum login
 session_start();
 if ($_SESSION['status'] != "login") {
@@ -140,14 +138,6 @@ include 'layout/header.php';
 
         <?php
 
-        // Fungsi untuk mengubah ukuran gambar
-        function resizeImage($resourceType, $imageWidth, $imageHeight, $resizeWidth, $resizeHeight)
-        {
-            $resizeLayer = imagecreatetruecolor($resizeWidth, $resizeHeight);
-            imagecopyresampled($resizeLayer, $resourceType, 0, 0, 0, 0, $resizeWidth, $resizeHeight, $imageWidth, $imageHeight);
-            return $resizeLayer;
-        }
-
         if (isset($_POST['submit'])) {
             $kategori_menu = $_POST['menu'];
             $nama_produk = $_POST['nama_produk'];
@@ -159,48 +149,14 @@ include 'layout/header.php';
             $filename = $_FILES['gambar']['name'];
             $tmpname = $_FILES['gambar']['tmp_name'];
             $type1 = explode('.', $filename);
-            $type2 = $type1[1];
+            $type2 = strtolower(end($type1));
             $newimage = 'img' . time() . '.' . $type2;
             $tipefile = array("jpg", "jpeg", "png", "gif", "webp");
 
             if ($filename != "") {
-
-
                 if (!in_array($type2, $tipefile)) {
                     echo "<script>alert('Format File Tidak Dizinkan');</script>";
                 } else {
-                      // Mengubah ukuran gambar
-                      list($width, $height) = getimagesize($tmpname);
-                      $resizeWidth = 300;
-                      $resizeHeight = 300;
-
-                      switch ($type2) {
-                        case 'jpg':
-                        case 'jpeg':
-                            $resourceType = imagecreatefromjpeg($tmpname);
-                            $imageLayer = resizeImage($resourceType, $width, $height, $resizeWidth, $resizeHeight);
-                            imagejpeg($imageLayer, '../img/asset/menu/' . $newimage);
-                            break;
-
-                        case 'png':
-                            $resourceType = imagecreatefrompng($tmpname);
-                            $imageLayer = resizeImage($resourceType, $width, $height, $resizeWidth, $resizeHeight);
-                            imagepng($imageLayer, '../img/asset/menu/' . $newimage);
-                            break;
-
-                        case 'gif':
-                            $resourceType = imagecreatefromgif($tmpname);
-                            $imageLayer = resizeImage($resourceType, $width, $height, $resizeWidth, $resizeHeight);
-                            imagegif($imageLayer, '../img/asset/menu/' . $newimage);
-                            break;
-
-                        case 'webp':
-                            $resourceType = imagecreatefromwebp($tmpname);
-                            $imageLayer = resizeImage($resourceType, $width, $height, $resizeWidth, $resizeHeight);
-                            imagewebp($imageLayer, '../img/asset/menu/' . $newimage);
-                            break;
-                    }
-
                     if (move_uploaded_file($tmpname, '../img/asset/menu/' . $newimage)) {
                         $insert = mysqli_query($conn, "INSERT INTO tbl_product VALUES(null,'$kategori_menu','$nama_produk','$harga','$stok','$deskripsi','$newimage','$status')");
                         if ($insert) {
