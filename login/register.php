@@ -67,7 +67,7 @@ if (isset($_GET['pesan'])) {
             <input name="password" id="password" type="password" class="login__input" placeholder="Password" required>
           </div>
           <div class="login__field">
-            <i class="login__icon fas fa-lock"></i>
+              <i class="login__icon fas fa-lock"></i>
             <input name="password1" id="password1" type="password" class="login__input" placeholder="Password" required>
           </div>
           <div class="login__field">

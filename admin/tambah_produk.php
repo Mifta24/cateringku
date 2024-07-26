@@ -103,17 +103,17 @@ include 'layout/header.php';
 
             <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
-                <input type="text" class="form-control" name="nama_produk" id="nama_produk" placeholder="Nama Produk">
+                <input type="text" class="form-control" name="nama_produk" id="nama_produk" placeholder="Nama Produk" required>
             </div>
 
             <div class="form-group">
                 <label for="harga">Harga</label>
-                <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga">
+                <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" required>
             </div>
 
             <div class="form-group">
                 <label for="stok">Stok</label>
-                <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok">
+                <input type="number" class="form-control" name="stok" id="stok" placeholder="Stok" required>
             </div>
 
             <div class="form-group">
@@ -128,7 +128,7 @@ include 'layout/header.php';
 
             <div class="form-group">
                 <label for="status">Status Penjualan</label>
-                <select name="status" id="status" class="form-control h-100">
+                <select name="status" id="status" class="form-control h-100" required>
                     <option value="">Pilih...</option>
                     <option value="1">On Sale</option>
                     <option value="0">Not For Sale</option>

@@ -23,7 +23,7 @@ if ($_SESSION['status'] != "login") {
         <form action="" method="post"  enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama_menu">Nama Menu</label>
-                <input type="text" class="form-control" name="nama_menu" id="nama_menu" placeholder="Nama Menu" value="">
+                <input type="text" class="form-control" name="nama_menu" id="nama_menu" placeholder="Nama Menu" required>
             </div>
 			<div class="form-group">
                 <label for="gambar">Gambar</label>
@@ -57,7 +57,7 @@ if ($_SESSION['status'] != "login") {
 			
 			$nama_menu=ucwords( $_POST['nama_menu']);
 
-			$insert=mysqli_query($conn,"INSERT INTO tbl_category VALUES(null,'$nama_menu',$newimage)");
+			$insert=mysqli_query($conn,"INSERT INTO tbl_category VALUES(null,'$nama_menu','$newimage')");
 
 			if ($insert) {
 				echo "<p style='color : green'>Update Success</p>";

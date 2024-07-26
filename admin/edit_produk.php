@@ -108,19 +108,19 @@ body {
             <!-- Product Name -->
             <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
-                <input type="text" class="form-control" name="nama_produk" id="nama_produk" placeholder="Nama Produk" value="<?php echo $p->product_name; ?>">
+                <input type="text" class="form-control" name="nama_produk" id="nama_produk" placeholder="Nama Produk" value="<?php echo $p->product_name; ?>" required>
             </div>
 
             <!-- Price -->
             <div class="form-group">
                 <label for="harga">Harga</label>
-                <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" value="<?php echo $p->product_price; ?>">
+                <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" value="<?php echo $p->product_price; ?>" required>
             </div>
 
             <!-- Stock -->
             <div class="form-group">
                 <label for="stok">Stok</label>
-                <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok" value="<?php echo $p->stock; ?>">
+                <input type="number" class="form-control" name="stok" id="stok" placeholder="Stok" value="<?php echo $p->stock; ?>" required>
             </div>
 
             <!-- Old Image -->
@@ -133,19 +133,19 @@ body {
             <!-- New Image -->
             <div class="form-group">
                 <label for="gambar">Gambar Baru (Opsional)</label>
-                <input type="file" name="gambar" id="gambar" class="form-control h-100">
+                <input type="file" name="gambar" id="gambar" class="form-control h-100" required>
             </div>
 
             <!-- Description -->
             <div class="form-group">
                 <label for="deskripsi">Deskripsi Produk</label>
-                <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control"><?php echo $p->product_description; ?></textarea>
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control" required><?php echo $p->product_description; ?></textarea>
             </div>
 
             <!-- Status -->
             <div class="form-group">
                 <label for="status">Status Penjualan</label>
-                <select name="status" id="status" class="form-control h-100">
+                <select name="status" id="status" class="form-control h-100" required>
                     <option value="">Pilih...</option>
                     <option value="1" <?php echo ($p->product_status == 1) ? 'selected' : ''; ?>>On Sale</option>
                     <option value="0" <?php echo ($p->product_status == 0) ? 'selected' : ''; ?>>Not For Sale</option>

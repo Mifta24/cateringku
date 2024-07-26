@@ -87,7 +87,7 @@ include '../database/db.php';
         <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama_menu">Nama Menu</label>
-                <input type="text" class="form-control" name="nama_menu" id="nama_menu" placeholder="Nama Menu" value="<?php echo $k->category_name ;?>">
+                <input type="text" class="form-control" name="nama_menu" id="nama_menu" placeholder="Nama Menu" value="<?php echo $k->category_name ;?>" required>
             </div>
             <!-- Old Image -->
             <input type="hidden" name="foto" value="<?php echo $k->image; ?>">
@@ -99,7 +99,7 @@ include '../database/db.php';
             <!-- New Image -->
             <div class="form-group">
                 <label for="gambar">Gambar Baru (Opsional)</label>
-                <input type="file" name="gambar" id="gambar" class="form-control h-100">
+                <input type="file" name="gambar" id="gambar" class="form-control h-100" required>
             </div>
             
             <button type="submit" class="btn btn-primary" name="submit" id="submit">Update</button>

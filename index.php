@@ -207,7 +207,7 @@ if (isset($_GET['kat'])) {
           <img class="menu-card-img" src="img/asset/menu/<?php echo $p->product_image ?>" alt="Menu" />
           <h3 class="menu-card-title">~ <?php echo $p->product_name ?> ~</h3>
           <p class="menu-card-price">Rp.<?php echo $p->product_price ?></p>
-          <a class="beli-menu" href="qr.html">Beli Sekarang</a>
+          <a class="beli-menu" href="#">Beli Sekarang</a>
         </div>
 
       <?php endwhile; ?>

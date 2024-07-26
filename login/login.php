@@ -57,11 +57,11 @@
 			<form class="login" action="cek_login.php" method="post">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" name="username" class="login__input" placeholder="User name">
+					<input type="text" name="username" class="login__input" placeholder="User name" required>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input name="password" id="password" type="password" class="login__input" placeholder="Password">
+					<input name="password" id="password" type="password" class="login__input" placeholder="Password" required>
 				</div>
 				<button class="button login__submit" type="submit" name="submit">
 					<span class="button__text">Log In Now</span>
