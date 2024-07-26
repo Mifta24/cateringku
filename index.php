@@ -223,7 +223,7 @@ if (isset($_GET['kat'])) {
     <p>HUBUNGI KAMI JIKA ADA YANG INGIN DITANYAKAN</p>
 
     <div class="row">
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.597407767157!2d106.65815551409116!3d-6.184599362317558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f91c36836213%3A0x6352737102ead164!2sGg.%20Annur%2C%20RW.001%2C%20Poris%20Plawad%20Utara%2C%20Kec.%20Cipondoh%2C%20Kota%20Tangerang%2C%20Banten%2015141!5e0!3m2!1sid!2sid!4v1675228682362!5m2!1sid!2sid" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114398.962840825!2d-85.31045326748503!3d40.333355636549676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8836e97ab54d8ec1%3A0xe5cd64399c9fd916!2sOhio%2C%20Amerika%20Serikat!5e0!3m2!1sid!2sid!4v1721989730195!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
       <form action="" method="get">
         <div class="input-group">
