@@ -16,13 +16,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['name_product'] = $product_name;
     $name_menu = $_SESSION['name_product'];
 
+
+    // Check product stock
+    $product_stock_query = mysqli_query($conn, "SELECT stock FROM tbl_product WHERE product_id='$product_id'");
+    $product_stock_result = mysqli_fetch_assoc($product_stock_query);
+
+    if ($product_stock_result['stock'] < $quantity) {
+        echo "<script>alert('Stock habis!'); window.history.back();</script>";
+        exit;
+    }
+
     $pemesanan = mysqli_query($conn, "SELECT * FROM tbl_pemesanan WHERE name_menu='$product_name' AND user='" . $_SESSION['username'] . "' ");
     $p = mysqli_fetch_object($pemesanan);
 
     error_reporting(0);
 
     if ($name_menu == $p->name_menu) {
+
+
+
         $qtynew = $p->qty + $quantity;
+
+        // Check if the new quantity exceeds stock
+        if ($product_stock_result['stock'] < $qtynew) {
+            echo "<script>alert('Stock habis!'); window.history.back();</script>";
+            exit;
+        }
+
+
         mysqli_query($conn, "UPDATE tbl_pemesanan SET qty='$qtynew' WHERE name_menu='$product_name' AND user='" . $_SESSION['username'] . "' ");
 
         $produk = mysqli_query($conn, "SELECT * FROM tbl_product WHERE  product_id='" . $_SESSION['cart'][$product_id]['id'] . "'");
@@ -161,10 +182,10 @@ $s = mysqli_fetch_assoc($status);
                 }
                 ?>
             </div>
-             <!-- Pagination -->
-             <div class="col-12 text-center mt-4">
+            <!-- Pagination -->
+            <div class="col-12 text-center mt-4">
                 <nav aria-label="Page navigation">
-                      <ul class="pagination">
+                    <ul class="pagination">
                         <?php if ($page > 1) : ?>
                             <li class="page-item">
                                 <a class="page-link" href="?page=<?php echo $page - 1; ?>" aria-label="Previous">
@@ -192,7 +213,7 @@ $s = mysqli_fetch_assoc($status);
         </div>
     </div>
     <!-- Shopping Cart end -->
-        </div>
+    </div>
     </div>
     <!-- Shopping Cart end -->
 

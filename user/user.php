@@ -228,7 +228,7 @@ if (isset($_GET['kat'])) {
 
             <input type="number" name="quantity" id="jumlah" min="1" max="<?php echo $p->stock ?>" required>
 
-            <button name="beli" class="beli-menu">Beli Sekarang</button>
+            <button name="beli" class="beli-menu" type="submit" >Beli Sekarang</button>
 
           </form>
         </div>

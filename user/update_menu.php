@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
         $produk = mysqli_query($conn, "SELECT * FROM tbl_product WHERE  product_name='" . $_GET['nmp'] . "' ");
         $p = mysqli_fetch_assoc($produk);
 
+        // jika user kurangin stock 
         if ($_GET['qty'] > $qtybaru) {
             $selisih = $_GET['qty'] - $qtybaru;
             $jumlahbaru = $p["stock"] + $selisih;
@@ -21,10 +22,13 @@ if (isset($_POST['submit'])) {
                 echo "berhasil";
                 header("location:keranjang.php");
             } else {
-           
+                
                 error_reporting(1);
             }
-        } elseif ($_GET['qty'] < $qtybaru) {
+            
+        }
+        // jika user nambah stock
+        elseif ($_GET['qty'] < $qtybaru) {
             $selisih =$qtybaru - $_GET['qty'] ;
             $jumlahbaru = $p["stock"] - $selisih;
             echo $jumlahbaru;
