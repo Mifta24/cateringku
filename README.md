@@ -26,7 +26,7 @@ Cateringku adalah sebuah website kafe yang memungkinkan pengguna untuk membeli b
 
 3. Import file SQL yang disediakan (`catering.sql`) ke dalam database MySQL Anda menggunakan phpMyAdmin.
 
-4. Konfigurasikan koneksi database MySQL dengan mengedit berkas `config.php` dan mengganti nilai `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, dan `DB_NAME` sesuai dengan pengaturan Anda.
+4. Konfigurasikan koneksi database MySQL dengan mengedit berkas `db.php` dan mengganti nilai `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, dan `DB_NAME` sesuai dengan pengaturan Anda.
 
 ```php
 // Konfigurasi database
